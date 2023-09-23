@@ -10,10 +10,24 @@ pipeline{
                 }
             }
         }
-        stage("unit test"){
+        stage("unit testing"){
             steps{
                 script{
-                    sh 'mvn test'
+                    sh 'mvn clean test'
+                }
+            }
+        }
+         stage("Integration testing"){
+            steps{
+                script{
+                    sh 'mvn verify -DskipUnitTests'
+                }
+            }
+        }
+         stage("Build"){
+            steps{
+                script{
+                    sh 'mvn clean install'
                 }
             }
         }
