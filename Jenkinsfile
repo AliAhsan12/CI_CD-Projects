@@ -4,7 +4,7 @@ pipeline{
 
     stages{
         stage("git checkout"){
-            step{
+            steps{
                 script{
                     echo "hello"
                 }
