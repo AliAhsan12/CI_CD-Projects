@@ -34,7 +34,7 @@ pipeline{
         stage("docker image build"){
             steps{
                 script{
-                    sh "docker build -t aliahsan123/java-maven-app:1.0"
+                    sh "docker build -t aliahsan123/java-maven-app:1.0 ."
                 }
             }
         }
