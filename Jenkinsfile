@@ -31,6 +31,13 @@ pipeline{
                 }
             }
         }
+        stage("docker image build"){
+            steps{
+                script{
+
+                }
+            }
+        }
     }
 
 }
