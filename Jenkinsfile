@@ -34,7 +34,22 @@ pipeline{
         stage("docker image build"){
             steps{
                 script{
+                    sh "docker build -t aliahsan123/java-maven-app:1.0"
+                }
+            }
+        }
+        stage("Push to docker hub"){
+            steps{
+                script{
+                    withCredentials([usernamePassword(
+                         credentialsId: "docker-cred",
+                         usernameVariable: "USER",
+                         passwordVariable: "PASS"
+                    )]) {
+                     sh "docker login -u '$USER' -p '$PASS'"
+                     sh "docker image push aliahsan123/java-maven-app:1.0"
 
+                    }
                 }
             }
         }
